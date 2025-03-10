@@ -7,7 +7,7 @@
 ### 1. Склонируйте репозиторий
 
 ```bash
-git clone https://github.com/Frozet/eis_scraper.git
+git clone https://github.com/Frozet/eis-scraper.git
 cd eis-scraper
 ```
 
