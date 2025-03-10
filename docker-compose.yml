@@ -1,0 +1,21 @@
+services:
+  scraper:
+    build: .
+    container_name: eis_scraper
+    command: python eis_scraper.py
+    depends_on:
+      - redis
+
+  celery_worker:
+    build: .
+    command: celery -A eis_scraper worker --loglevel=info
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
